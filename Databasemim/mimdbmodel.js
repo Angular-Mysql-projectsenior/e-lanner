@@ -11,6 +11,9 @@ module.exports = (sequelize, Sequelize) => {
       },
       status : {
         type: Sequelize.STRING
+      }, 
+      solo : {
+        type: Sequelize.BOOLEAN,
       },     
       deadline: {
         type: Sequelize.DATE

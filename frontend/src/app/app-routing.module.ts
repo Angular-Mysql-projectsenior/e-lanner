@@ -4,8 +4,8 @@ import { AddComponent } from './add/add.component';
 import { UpdateComponent } from './update/update.component';
 
 const routes: Routes = [
-  { path: ' Add ', component: AddComponent },
-  { path: ' Update  ', component: UpdateComponent }
+  { path: ' add ', component: AddComponent },
+  { path: ' update  ', component: UpdateComponent }
 ];
 
 @NgModule({
@@ -13,3 +13,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+

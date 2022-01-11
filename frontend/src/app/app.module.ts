@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { AddComponent } from './add/add.component';
 import { UpdateComponent } from './update/update.component';
 
+import { HttpClientModule } from '@angular/common/http';
+import { ApiserviceService } from './apiservice.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,9 +16,10 @@ import { UpdateComponent } from './update/update.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule, 
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ApiserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

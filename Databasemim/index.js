@@ -1,4 +1,4 @@
-const dbConfig = require("./mimdbconfig");
+const dbConfig = require("../Databasemim/mimdbconfig");
 
 const Sequelize = require("sequelize");
 const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
@@ -19,6 +19,7 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
-db.projects = require("./mimdbmodel")(sequelize, Sequelize);
+db.project = require("./mimdbmodel")(sequelize, Sequelize);
 
-module.exports = mimdb;
+module.exports = db;
+
