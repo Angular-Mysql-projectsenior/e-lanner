@@ -17,3 +17,4 @@ db_con.connect((err) => {
 });
   
 module.exports = db_con;
+
