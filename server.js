@@ -27,25 +27,24 @@ app.get("/createdb", (req, res) => {
 	});
 });
 
-//create table
+//create tables projet & users 
 app.get('/create/tableprojects', (req, res) => {
-	let sql = 'CREATE TABLE IF NOT EXISTS project (id_project INT NOT NULL AUTO_INCREMENT, title VARCHAR(100) NOT NULL , status VARCHAR(255) , note VARCHAR(255)  , deadline DATETIME , PRIMARY KEY (id_project) )';
+	let sql = 'CREATE TABLE IF NOT EXISTS project (id_project INT NOT NULL AUTO_INCREMENT, title VARCHAR(100) NOT NULL , status VARCHAR(255) , note VARCHAR(255)  , deadline DATETIME , PRIMARY KEY (id_project) , CONSTRAINT fk_id_user FOREIGN KEY(id_user) REFERENCES users(id_user)  )';
 	database.query(sql, (err, res) => {
 		if (err) throw err;
-		console.log(res );
+		console.log(res);
 		return res.send( `Table project is created successfully!`);
 	});
 });
 
 app.get('/create/tableusers', (req, res) => {
-	let sql = 'CREATE TABLE IF NOT EXISTS user (id_user INT NOT NULL AUTO_INCREMENT, username VARCHAR(255) NOT NULL , password VARCHAR(255) NOT NULL , email VARCHAR(255) , PRIMARY KEY (id_user) , FOREIGN KEY (id_project) )';
-	database.query(sql, (err, res) => {
+	let sql = 'CREATE TABLE IF NOT EXISTS users (id_user INT NOT NULL AUTO_INCREMENT, username VARCHAR(255) NOT NULL , password VARCHAR(255) NOT NULL , email VARCHAR(255) , UNIQUE(username,email) , PRIMARY KEY (id_user) )';
+	database.query(sql, (err, result) => {
 		if (err) throw err;
-		console.log(res );
-		return res.send( `Table user is created successfully!`);
+		console.log(result);
+		return result.send(`Table user is created successfully!`);
 	});
 });
-
 
 require("./routes")(app);
 
