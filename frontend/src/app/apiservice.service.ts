@@ -11,7 +11,7 @@ export class ApiserviceService {
 
 // connect frontend to backend
 
-apiUrl = 'http://localhost:3000/project';
+apiUrl = 'http://localhost:5000/project';
 
  //Get all projects
 
@@ -19,6 +19,4 @@ apiUrl = 'http://localhost:3000/project';
 
       return this._http.get( `$(this.apiUrl)`);
  }
-
-
 }

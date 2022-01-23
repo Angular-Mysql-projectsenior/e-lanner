@@ -22,8 +22,6 @@ exports.create = (req, res) => {
         });
       });
   };
-
-
   exports.findAll = (req, res) => {
     const title = req.query.title;
     var condition = title ? { title: { [Op.like]: `%${title}%` } } : null;
@@ -39,10 +37,8 @@ exports.create = (req, res) => {
         });
       });
   };
-
   exports.findOne = (req, res) => {
-    const id = req.params.id;
-  
+    const id = req.params.id; 
     project.findByPk(id)
       .then(data => {
         if (data) {
