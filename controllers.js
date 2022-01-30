@@ -2,7 +2,7 @@ const db = require("./mimdb");
 const project = db.projects;
 const Op = db.Sequelize.Op;
 
-exports.create = (req, res) => { 
+exports.create = (req, res) => {
   // Save project in the database
   project.create(project)
     .then(data => {
@@ -52,7 +52,6 @@ exports.findOne = (req, res) => {
 
 exports.update = (req, res) => {
   const id = req.params.id;
-
   project.update(req.body, {
     where: { id: id }
   })
@@ -76,7 +75,6 @@ exports.update = (req, res) => {
 
 exports.delete = (req, res) => {
   const id = req.params.id;
-
   project.destroy({
     where: { id: id }
   })
@@ -117,16 +115,4 @@ exports.deleteAll = (req, res) => {
 };
 
 
-exports.findAllsolo = (req, res) => {
-  project.findAll({ where: { solo: true } })
-    .then(data => {
-      res.send(data);
-    })
-    .catch(err => {
-      res.status(500).send({
-        message:
-          err.message || "Some error occurred while retrieving projects."
-      });
-    });
-};
 
