@@ -82,8 +82,6 @@ exports.update = (req, res) => {
       });
   };
 
-
-
 exports.delete = (req, res) => {
   const id = req.params.id;
 
