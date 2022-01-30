@@ -15,7 +15,7 @@ module.exports = (sequelize, Sequelize) => {
     deadline: {
       type: Sequelize.DATE
     },
-    Note: {
+    note: {
       type: Sequelize.STRING
     }
   });
