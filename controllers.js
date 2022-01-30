@@ -22,7 +22,8 @@ exports.create = (req, res) => {
         });
       });
   };
-  exports.findAll = (req, res) => {
+
+exports.findAll = (req, res) => {
     const title = req.query.title;
     var condition = title ? { title: { [Op.like]: `%${title}%` } } : null;
   
@@ -37,7 +38,8 @@ exports.create = (req, res) => {
         });
       });
   };
-  exports.findOne = (req, res) => {
+
+exports.findOne = (req, res) => {
     const id = req.params.id; 
     project.findByPk(id)
       .then(data => {
@@ -56,7 +58,7 @@ exports.create = (req, res) => {
       });
   };
 
-  exports.update = (req, res) => {
+exports.update = (req, res) => {
     const id = req.params.id;
   
     project.update(req.body, {
@@ -80,7 +82,9 @@ exports.create = (req, res) => {
       });
   };
 
- exports.delete = (req, res) => {
+
+
+exports.delete = (req, res) => {
   const id = req.params.id;
 
   project.destroy({
@@ -123,7 +127,7 @@ exports.deleteAll = (req, res) => {
   };
 
 
-  exports.findAllsolo = (req, res) => {
+exports.findAllsolo = (req, res) => {
     project.findAll({ where: { solo: true } })
       .then(data => {
         res.send(data);
